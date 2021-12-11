@@ -1,5 +1,5 @@
 const {Op} = require('sequelize')
-const Schedule = require('../model/sequelize')
+const Schedule = require('../model/sequelizeDB')
 module.exports = async function ApiFindItem(req,res){
     try{
         const {id,name,price} = req.body
