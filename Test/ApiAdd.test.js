@@ -39,6 +39,18 @@ describe("api /apiadditem",()=>{
             expect(response.body.msg).to.be.equal('invalid datas')
             expect(response.status).to.be.equal(401)
         })
+
+
     })
-    
+    define("test cases sucessfull",()=>{
+        test("should return sucess when send correct values",async()=>{
+            const response = await request(app)
+            .post('/apiadditem')
+            .set({'Content-Type':'application/json'})
+            .send({name:'mango',price:2.56})
+
+            expect(response.body.msg).to.be.equal('sucessful')
+            expect(response.status).to.be.equal(200)
+        })
+    })
 })
