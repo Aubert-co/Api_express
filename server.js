@@ -8,6 +8,4 @@ app.use(express.json())
 
 app.use(route)
 
-app.listen(8080,()=>{
-    console.info('running at port 8080')
-})
+module.exports = app
