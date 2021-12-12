@@ -4,7 +4,7 @@ module.exports = async function ApiSelect(req,res){
 
         const data =await  Schema.findAll()
 
-        res.status(200).send({msg:'sucess',data})
+        res.status(200).send({msg:'successful',data})
     }catch(err){
         res.status(501).send({msg:'something went wrong'})
     }
