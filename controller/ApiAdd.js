@@ -3,13 +3,12 @@ module.exports = async function ApiAddItem(req,res){
     try{
         const {name,price} = req.body
 
-        if(!name  || typeof name !== 'string')return res.status(401).send({msg:'invalid name'})
+        if(!name || !price || typeof price !== 'number' || typeof name !== 'string')return res.status(401).send({msg:'invalid datas'})
         
-        if(!price || typeof price !== 'number')return res.status(401).send({msg:'invalid price'})
         
         const ADDvalue = await Schema.create({name,price})
         res.status(200).send({msg:'ok'})
     }catch(err){
-        throw err
+        res.status(501).send({msg:'something went wrong try again'})
     }
 }
