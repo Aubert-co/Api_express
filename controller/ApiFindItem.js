@@ -18,7 +18,7 @@ module.exports = async function ApiFindItem(req,res){
                 ]
             }
         })
-        res.status(200).send({msg:'sucess',data})
+        res.status(200).send({msg:'successful',data})
     }catch(err){
         res.status(501).send({msg:'something went wrong'})
     }
