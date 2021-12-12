@@ -7,7 +7,7 @@ module.exports = async function ApiAddItem(req,res){
         
         
         const ADDvalue = await Schema.create({name,price})
-        res.status(200).send({msg:'ok'})
+        res.status(200).send({msg:'successful'})
     }catch(err){
         res.status(501).send({msg:'something went wrong try again'})
     }
