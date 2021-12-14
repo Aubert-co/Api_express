@@ -1,26 +1,26 @@
 const Schema = require('../model/sequelizeDB')
 module.exports = async function ApiUpdate(req,res){
     try{
-        const {newName,newPrice,id} = req.body
-        if(!id)return res.status(401).send({msg:'id null'})
-        if(!newName || !newPrice )return res.status(401).send({msg:'name or price needs a value'})
+        const {name,price,id} = req.body
+        if(!id)return res.status(401).send({msg:'id not be null'})
+        if(!name || !price )return res.status(401).send({msg:'name or price needs a value'})
 
-        if(typeof newPrice !== 'number')return res.status(401).send({msg:'price needs to be a number'})
+        //if(typeof price !== 'number')return res.status(401).send({msg:'price needs to be a number'})
         
-        if(typeof newName !== 'string')return res.status(401).send({msg:'name needs to be a string'})
+        //if(typeof name !== 'string')return res.status(401).send({msg:'name needs to be a string'})
 
-        if(!newName && newPrice){
-            const UpdateTable = await Schema.update({newPrice},{where:{id}})
+        if(!name && price){
+            const UpdateTable = await Schema.update({price},{where:{id}})
 
             return res.status(200).send({msg:'price updated successfully'})
         }
       
-       if(!newPrice && newName){
-            const UpdateTable = await Schema.update({newName},{where:{id}})
+       if(!price && name){
+            const UpdateTable = await Schema.update({name},{where:{id}})
             return res.status(200).send({msg:'name updated successfully'})
        }
 
-       const UpdateAllValues = await Schema.update({newName,newPrice},{
+       const UpdateAllValues = await Schema.update({name,price},{
            where:{id}
        })
     }catch(err){
